@@ -7,7 +7,7 @@ import java.util.StringTokenizer;
 
 public class No2003 {
 
-	public static void main(String[] args) {
+	public static void main(String[] args)  {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int answer = 0;
 		try {
@@ -22,21 +22,36 @@ public class No2003 {
 				arr[i] = Integer.valueOf(st.nextToken());
 			}
 			
-			for(int i = 0; i < n; i++) {
-				int sum = 0;
-				for(int j = i; j < n; j++){
-					if(arr[j] > m) {
-						break;
-					}
-					sum += arr[j];
-					if(sum > m) {
-						break;
-					}else if(sum == m) {
-						answer++;
-						break;
-					}
+//			for(int i = 0; i < n; i++) {
+//				int sum = 0;
+//				for(int j = i; j < n; j++){
+//					if(arr[j] > m) {
+//						break;
+//					}
+//					sum += arr[j];
+//					if(sum > m) {
+//						break;
+//					}else if(sum == m) {
+//						answer++;
+//						break;
+//					}
+//				}
+//			}
+//			
+			// tow pointer È°¿ë
+			int sum = 0;
+			for(int s= 0, e = 0; e < n; e++) {
+				sum += arr[e];
+				while(sum > m) {
+					sum -= arr[s++];
 				}
+				
+				if(sum == m) {
+					answer++;
+				}
+				
 			}
+			
 
 		} catch (IOException e) {
 			e.printStackTrace();

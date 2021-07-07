@@ -14,6 +14,7 @@ public class No2805 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 		st = new StringTokenizer(br.readLine());
+		
 		N = Integer.parseInt(st.nextToken());
 		M = Integer.parseInt(st.nextToken());
 
@@ -22,29 +23,23 @@ public class No2805 {
 		for (int i = 0; i < N; i++) {
 			arr[i] = Integer.parseInt(st.nextToken());
 		}
+		
 		Arrays.sort(arr);
 
-		long max = arr[arr.length - 1];
-		int min = 0;
-		long mid = (max + min) / 2;
+		long max = 2000000000;
+		long min = 0;
+		long mid;
 
 		long answer = 0;
-		while (mid <= arr[arr.length-1] && 0 <= mid) {
+		while (min <= max) {
+			mid = (max + min) / 2;
 			if (cut_ok(mid)) {
 				if(mid > answer) {
 					answer = mid;
-				}else {
-					break;
 				}
-				mid = (mid + 1 + max) / 2;
-				
-				
+				min = mid+1;
 			} else {
-				if(mid > answer) {
-					mid = (answer + mid)/2;
-				}else {
-					mid = (min + mid - 1) / 2;
-				}
+				max = mid-1;
 			}
 		}
 		System.out.println(answer);

@@ -2,7 +2,7 @@ package algorithm;
 
 import java.util.*;
 
-// 우선순위 queue(heap) 문제
+// 우선순위 queue(heap) 문제 - 시간 초과
 public class No1655 {
 
 	public static void main(String[] args) {

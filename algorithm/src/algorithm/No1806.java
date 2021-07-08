@@ -14,6 +14,7 @@ public class No1806 {
 		st = new StringTokenizer(br.readLine());
 		N = Integer.parseInt(st.nextToken());
 		M = Integer.parseInt(st.nextToken());
+
 		st = new StringTokenizer(br.readLine());
 
 		arr = new int[N];
@@ -22,26 +23,28 @@ public class No1806 {
 			arr[i] = Integer.parseInt(st.nextToken());
 		}
 
-		int sum = arr[0];
-		int min_len = 1000000;
+		int sum = 0;
+		int min_len = 100001;
 		int start = 0, end = 0;
-		
-		while (true) {
-			if(sum < M && end+1 < N) {
-				sum += arr[++end];
-			}else if (sum >= M) {
-				
+
+		while (start < N && end <= N && start <= end) {	// 마지막 값을 더한 후 sum >= M인데 종료되는 경우 막기 위해 end <= N 추가
+			while (sum < M && end < N) { // 부분합이 M보다 작을 경우 계속 추가
+				sum += arr[end++];
 			}
+
+			if (sum >= M && min_len > end - start) { // sum >= m이고 최소 거리보다 작을 경우
+				min_len = end - start;
+			}
+			
+			sum -= arr[start++];
+	
 		}
-		
-		
-		
-		
-//		if (min_len > M) {
-//			System.out.println(0);
-//		} else {
-//			System.out.println(min_len);
-//		}
+
+		if (min_len == 100001) {
+			System.out.println(0);
+		} else {
+			System.out.println(min_len);
+		}
 
 	}
 

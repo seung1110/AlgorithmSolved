@@ -6,9 +6,9 @@ import java.io.*;
 public class No1010 {
 
 	static int T;
-	static boolean[] check = new boolean[31];
 	static int answer, X, Y;
 	static BufferedWriter bw;
+	static int[][] cache = new int[30][30];
 
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -21,12 +21,7 @@ public class No1010 {
 			st = new StringTokenizer(br.readLine());
 			X = Integer.parseInt(st.nextToken());
 			Y = Integer.parseInt(st.nextToken());
-			if (X == Y) {
-				bw.write("1");
-				bw.write("\n");
-				continue;
-			}
-			fun(0,0);
+			fun(X,Y);
 			bw.write(answer + "");
 			bw.write("\n");
 
@@ -38,22 +33,21 @@ public class No1010 {
 
 	// xCy 값 구하는 함수
 
-	static void fun(int k, int start) { // k는 선택한 개수
-
-		if (k == X) {
-			answer++;
-			return;
+	static int fun(int x, int y) { 
+		if(x == y) {
+			return 1;
 		}
+		if(x < 0 || x >= X || y < 0 || y >= Y )
+			return 0;
 
-		for (int i = start; i <= Y - X + k; i++) {
-			if (check[i])
-				continue;
-			
-			check[i] = true;
-			fun(k + 1, i+1);
-			check[i] = false;
-		}
-
+		if(cache[x][y] != 0)	// 이미 값이 있는 경우
+			return cache[x][y];
+		
+		
+		
+		
+		
+		return cache[x][y];
 	}
 
 }

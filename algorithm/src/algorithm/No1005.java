@@ -2,7 +2,7 @@ package algorithm;
 
 import java.util.*;
 import java.io.*;
-// 시간 초과 해결 불가
+// DFS + DP
 public class No1005 {
 
 	static int T, N;

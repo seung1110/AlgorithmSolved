@@ -2,7 +2,7 @@ package algorithm;
 
 import java.util.*;
 import java.io.*;
-// 시간 초과
+// BFS + DP
 public class No1005_sol {
 
 	static int T;
@@ -23,6 +23,7 @@ public class No1005_sol {
 
 			boolean[] v = new boolean[N+1];
 			cache = new int[N+1];
+			Arrays.fill(cache, -1);
 			
 			st = new StringTokenizer(br.readLine());
 			for (int j = 1; j <= N; j++) {
@@ -57,10 +58,10 @@ public class No1005_sol {
 	}
 	
 	static int rec(Connect key, boolean[] v) {
-		v[key.num] = true;
+		v[key.num] = true;	// 방문 체크
 		int max = 0;
 		
-		if(cache[key.num] != 0) {
+		if(cache[key.num] != -1) {
 			return cache[key.num];
 		}
 		
@@ -72,7 +73,7 @@ public class No1005_sol {
 		for(int i : key.list) {
 			v[i] = true;
 			int temp = rec(con[i],v);
-			if(cache[i] == 0) {
+			if(cache[i] == -1) {
 				cache[i] = temp;
 			}
 			max = max > temp ? max : temp;

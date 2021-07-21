@@ -13,21 +13,13 @@ public class No1712 {
 		a = Long.parseLong(st.nextToken());
 		b = Long.parseLong(st.nextToken());
 		c = Long.parseLong(st.nextToken());
-//		if(b > c) {
-//			System.out.println(-1);
-//			return ;
-//		}
-		
-		int i = 1;
-		while(true) {
-			long make_cost = a+(b*i);
-			long sale = i*c;
-			if(sale > make_cost) {
-				break;
-			}else {
-				i++;
-			}
+		if(b > c || c == b) {
+			System.out.println(-1);
+			return ;
 		}
+		
+		int i = (int)(a/(c-b)) + 1;
+
 
 		System.out.println(i);
 	}

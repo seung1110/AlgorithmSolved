@@ -3,8 +3,7 @@ package algorithm;
 import java.util.*;
 import java.io.*;
 
-// dfs 실패
-public class No1167 {
+public class No1167_sol {
 
 	static final int INF = Integer.MAX_VALUE;
 	static int V;
@@ -17,6 +16,7 @@ public class No1167 {
 
 		V = Integer.parseInt(br.readLine());
 		tree = new ArrayList[V + 1];
+		visited = new boolean[V+1];
 
 		for (int i = 1; i <= V; i++) {
 			tree[i] = new ArrayList<Pair>();
@@ -35,41 +35,47 @@ public class No1167 {
 				tree[n].add(new Pair(n, node, cost));
 			}
 		}
-
-		int max = 0;
-
-		for (int i = 1; i <= V; i++) {
-			visited = new boolean[V + 1];
-			max = Math.max(max, bfs(i));
-			System.out.println(bfs(i));
-		}
-		System.out.println(max);
-
-//		입력 확인
-//		for(int i = 1; i <= V; i++) {
-//			for(int j = 1;  j <=V; j++) {
-//				System.out.print(tree[i][j] + " ");
-//			}
-//			System.out.println();
-//		}
-
+		System.out.println(bfs(1));
 	}
 
 	static int bfs(int start) {
-		visited[start] = true;
-		int max = 0;
+		int[] max = new int[V + 1];
 
-		for (Pair p : tree[start]) {
-			if (!visited[p.y]) {
-
-				int temp = bfs(p.y) + p.cost;
-				max = Math.max(temp, max);
+		Queue<Pair> q = new LinkedList<>();
+		tree[start].stream().forEach(p -> {
+			q.add(p);
+		});
+		int degree = 0;
+		
+		while (!q.isEmpty()) {
+			int size = q.size();
+			for (int i = 0; i < size; i++) {
+				Pair now = q.poll();
+				if(visited[now.x]) {
+					continue;
+				}
+				if (degree == 0) {
+					max[degree] = Math.max(max[degree], now.cost);
+					System.out.println(max[degree]);
+				} else {
+					max[degree] = Math.max(max[degree-1]+now.cost, max[degree]);
+				}
+				visited[now.x] = true;
+				tree[now.y].stream().forEach(p -> {
+					q.add(p);
+				});
 			}
+			degree++;
 		}
+		
+		int answer = 0;
+		for(int i = 0; i <= V; i++) {
+			answer = Math.max(answer,max[i]);
+		}
+		
+		
 
-		visited[start] = false;
-
-		return max;
+		return answer;
 	}
 
 	static class Pair {

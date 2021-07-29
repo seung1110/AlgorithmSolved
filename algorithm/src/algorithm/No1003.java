@@ -1,7 +1,6 @@
 package algorithm;
 
 import java.io.*;
-import java.util.*;
 
 public class No1003 {
     static Val[] val = new Val[41];

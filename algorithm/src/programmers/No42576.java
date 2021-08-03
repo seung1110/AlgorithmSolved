@@ -11,8 +11,8 @@ public class No42576 {
         HashMap<String,Integer> map = new HashMap<>();
 
         for(String str : participant){
-            if(map.putIfAbsent(str,1) != null){
-                map.replace(str,map.get(str)+1);
+            if(map.putIfAbsent(str,1) != null){ // 해당 key 값이 없으면 null return, 아니면 value 값 return
+                map.replace(str,map.get(str)+1); // 값 수정
             }
         }
 

@@ -3,12 +3,12 @@ package algorithm;
 import java.util.*;
 import java.io.*;
 
-public class No1245 {
+public class No1245_un {
 
 	static int N, M;
 	static int[][] map;
 	static boolean[][] visited;
-	static int[][] move = { { -1, 0 }, { -1, 1 }, { 0, 1 }, { 1, 1 }, { 1, 0 }, { 1, -1 }, { 0, -1 }, { -1, -1 } }; //´ë°¢¼± Æ÷ÇÔ
+	static int[][] move = { { -1, 0 }, { -1, 1 }, { 0, 1 }, { 1, 1 }, { 1, 0 }, { 1, -1 }, { 0, -1 }, { -1, -1 } }; //ï¿½ë°¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //	static int[][] move = { { -1, 0 }, { 1, 0 }, { 0, 1 }, { 0, -1 } };
 	static int answer;
 

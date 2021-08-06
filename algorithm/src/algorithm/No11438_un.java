@@ -2,8 +2,8 @@ package algorithm;
 
 import java.util.*;
 import java.io.*;
-// ½Ã°£ÃÊ°ú
-public class No11438 {
+// ï¿½Ã°ï¿½ï¿½Ê°ï¿½
+public class No11438_un {
 
 	static int N, M;
 	static Node[] node;

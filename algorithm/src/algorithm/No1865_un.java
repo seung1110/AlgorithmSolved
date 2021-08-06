@@ -3,7 +3,7 @@ package algorithm;
 import java.io.*;
 import java.util.*;
 
-public class No1865 {
+public class No1865_un {
     static int INT_MAX = Integer.MAX_VALUE-1;
     public static void main(String[] args) throws Exception{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

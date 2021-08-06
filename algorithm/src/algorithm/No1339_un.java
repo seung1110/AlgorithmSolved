@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class No1339 {
+public class No1339_un {
 	static int max_length;
 	static int N;
 	public static void main(String[] args) {

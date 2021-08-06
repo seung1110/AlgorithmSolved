@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class No1629 {
+public class No1629_un {
     static int a;
     static int[] cache;
     public static void main(String[] args) {

@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class No3425 {
+public class No3425_un {
 
 	public static void main(String[] args) throws Exception {
-		// ¿¹¿ÜÃ³¸®, ÃÊ±âÈ­ ¾ÈµÇ´Â °Í ÁÖÀÇ
+		// ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½, ï¿½Ê±ï¿½È­ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		Scanner sc = new Scanner(System.in);
 		List<Integer> list = new ArrayList<>();
 		String now;

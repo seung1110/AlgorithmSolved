@@ -3,7 +3,7 @@ package algorithm;
 import java.io.*;
 import java.util.*;
 
-public class No7453 {
+public class No7453_un {
 
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -19,8 +19,8 @@ public class No7453 {
 				arr[i][j] = Integer.parseInt(st.nextToken());
 			}
 		}
-		// a¿Íb, c¿Í dÀÇ Á¶ÇÕÀ» µû·Î!
-		// map »ç¿ë½Ã ½Ã°£ ÃÊ°ú ³ª¿È..
+		// aï¿½ï¿½b, cï¿½ï¿½ dï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½!
+		// map ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½ï¿½..
 //		HashMap<Integer, Integer> map_ab = new HashMap<>();
 //		HashMap<Integer, Integer> map_cd = new HashMap<>();
 //		
@@ -66,7 +66,7 @@ public class No7453 {
 		for (int p_ab = 0; p_ab < ab.length; p_ab++) {
 			int target = -ab[p_ab];
 
-			if (p_ab > 0 && ab[p_ab] == ab[p_ab - 1]) { // abÀÇ Áßº¹°ª Ã³¸®
+			if (p_ab > 0 && ab[p_ab] == ab[p_ab - 1]) { // abï¿½ï¿½ ï¿½ßºï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 				answer += cnt;  
 			} else { 
 
@@ -75,12 +75,12 @@ public class No7453 {
 				}
 				cnt = 0;
 				if (target == cd[p_cd]) {
-					while (0 <= p_cd && target == cd[p_cd]) { // cdÀÇ Áßº¹°ª Ã³¸®
+					while (0 <= p_cd && target == cd[p_cd]) { // cdï¿½ï¿½ ï¿½ßºï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 						cnt++;
 						p_cd--;
 					}
 				}
-				answer += cnt; // cnt¸¸Å­ °°Àº ¼ö°¡ µîÀå
+				answer += cnt; // cntï¿½ï¿½Å­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			}
 		}
 		return answer;

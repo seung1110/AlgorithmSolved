@@ -11,9 +11,11 @@ public class No2606 {
 		int n = Integer.parseInt(br.readLine());
 		int m = Integer.parseInt(br.readLine());
 		ArrayList<Integer> arr[] = new ArrayList[n+1];
+		
 		for(int i = 1; i < arr.length;i++) {
 			arr[i] = new ArrayList<>();
 		}
+		
 		boolean[] visited = new boolean[n+1];
 		
 		for(int i = 0; i < m; i++) {
@@ -30,9 +32,11 @@ public class No2606 {
 	static int bfs(ArrayList<Integer>[] arr, boolean[] visited) {
 		int cnt = 0;
 		Deque<Integer> q = new ArrayDeque<>();
+		
 		for(int i : arr[1]) {
 			q.add(i);
 		}
+		
 		visited[1] = true;
 		while(!q.isEmpty()) {
 			int temp = q.pollFirst();
